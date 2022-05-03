@@ -12,4 +12,4 @@ Amitsim provides a space for young widows and widowers and their young children 
 
 ***
 # Project Goal
-Creating a convenient interface for volunteers and managers of the association for the ongoing management of the association's activities via mobile web application.
+Creating a convenient interface for volunteers and managers of the association for the ongoing management of the association's activities via mobile and desktop web application.
