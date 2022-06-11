@@ -1,0 +1,59 @@
+.user-details__title {
+  margin-bottom: 0;
+}
+
+.user-details__profile,
+.user-details__roles {
+  text-align: start;
+  padding-inline: 2em;
+}
+
+.user-details__profile__title,
+.user-details__roles__title {
+  margin-bottom: 0.8em;
+}
+
+.user-details__profile__item {
+  margin-bottom: 0.8em;
+  border-bottom: 1px solid var(--clr-neutral-500);
+  text-align: center;
+}
+
+.property {
+  font-weight: 500;
+}
+
+.input {
+  border: 0;
+  outline: 0;
+  text-align: center;
+  font-size: 17px;
+  font-family: "Open Sans", sans-serif;
+
+}
+
+.input:focus {
+  font-weight: 550;
+  color: #2f1353;
+}
+
+.user-details__roles__list {
+  padding: 0 1em;
+  margin: 0;
+}
+
+.user-details__roles__list>li {
+  margin-bottom: 0.5em;
+}
+
+@media (min-width: 45em) {
+  .row {
+    display: flex;
+    gap: 2em;
+    align-items: flex-start;
+  }
+
+  .col {
+    flex: 1;
+  }
+}

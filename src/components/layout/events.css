@@ -1,0 +1,129 @@
+.main > .box {
+    max-width: 40em;
+  }
+  
+  .events-menu {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .events-menu__search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid var(--clr-neutral-500);
+    padding: 0.5em 1em;
+    border-radius: 100px;
+    gap: 0.5em;
+    margin: 1em auto;
+    max-width: 300px;
+  }
+  
+  .events-menu__search__input {
+    font-size: 1rem;
+    flex: 1;
+    border: 0;
+  }
+  
+  .events-menu__item {
+    display: flex;
+    max-width: 40rem;
+    margin: 1em auto;
+    box-shadow: 0 5px 20px -10px rgb(0 0 0 / 40%);
+    border-radius: 10px;
+    padding: 1em;
+  }
+  
+  .flexed {
+    display: flex;
+    gap: 0.6em;
+    justify-content: space-between;
+  }
+  
+  .events-menu__item__avatar {
+    border-radius: 5px;
+    color: var(--clr-neutral-900);
+    height: 1.5rem;
+    padding: .4em .8em;
+    font-weight: 500;
+    letter-spacing: .7px;
+    font-size: .7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    cursor: default;
+  }
+  
+  .avatar--hanukkah {
+    background-color: #FFE5B9;
+  }
+  
+  .avatar--meeting {
+    background-color: #FFCBCB;
+  }
+  
+  .avatar--support-groups {
+    background-color: #E7FBBE;
+  }
+  
+  .avatar-purim {
+    background-color: #B5EAEA;
+  }
+  
+  .avatar--first-grade {
+    background-color: #F6C6EA;
+  }
+  
+  .avatar--philanthropic {
+    background-color: #B5DEFF;
+  }
+
+  .avatar--happening {
+    background-color: #CA82FF;
+  }
+  
+  .events-menu__item__details {
+    flex: 1;
+  }
+  
+  .date {
+    font-size: 0.72rem;
+  }
+  
+  .events-menu__item__details__upper {
+    margin-bottom: 0.6em;
+  }
+  
+  .events-menu__item__details__lower {
+    align-items: center;
+  }
+  
+  .events-menu__item__details__description {
+    font-size: 0.8rem;
+    color: var(--clr-neutral-700);
+    font-weight: 500;
+    text-align: start;
+    line-height: 1.5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  
+  .event-linker {
+    font-weight: 700;
+    font-size: .85rem;
+    color: var(--clr-neutral-900);
+    background: none;
+    display: flex;
+    gap: .4em;
+    align-items: center;
+  }
+  
+  .read-more-icon {
+    font-size: 20px;
+  }
+  

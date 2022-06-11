@@ -1,0 +1,279 @@
+/*classes that are on every page */
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap");
+
+:root {
+  --clr-primary-light: #e4fffa;
+  --clr-primary-normal: #b7e7de;
+  --clr-primary-bold: #92b5b0;
+  --clr-secondary: #fff6a9;
+  --clr-accent: #bc001b;
+  --clr-title: rgb(49, 21, 84);
+  --clr-neutral-100: #fff;
+  --clr-neutral-300: rgb(229, 229, 229);
+  --clr-neutral-500: rgb(204, 204, 204);
+  --clr-neutral-600: rgb(167, 167, 167);
+  --clr-neutral-700: #333;
+  --clr-neutral-900: #000;
+  --box-shadow: 0 10px 34px -15px rgb(0 0 0 / 20%);
+  --box-shadow-bold: 0 10px 34px -15px rgb(0 0 0 / 80%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  outline: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+  background-color: var(--clr-primary-normal);
+  position: relative;
+  min-height: 100vh;
+}
+
+body::after {
+  content: '';
+  display: block;
+  height: 60px;
+}
+
+img {
+  max-width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+h1,
+h4,
+h2,
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  margin-inline: auto;
+  width: min(90%, 55rem);
+}
+
+.container--mini {
+  width: min(70%, 30rem);
+}
+
+.small {
+  color: var(--clr-neutral-700);
+}
+
+.title {
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--clr-title);
+}
+
+.title--sub {
+  margin-block: 0.8em;
+  color: var(--clr-title);
+}
+
+.spaced {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.centered {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bold {
+  margin-top: 0.3em;
+  color: var(--clr-neutral-900);
+  font-weight: 700;
+}
+
+.box {
+  background-color: var(--clr-neutral-100);
+  padding-block: 1.2em;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  text-align: center;
+}
+
+.box--sub {
+  margin-block: 1.3em;
+}
+
+.logo--big {
+  object-fit: cover;
+  width: 200px;
+  margin-bottom: 1.5em;
+}
+
+.logo--small {
+  object-fit: cover;
+  width: 75px;
+  margin-block: 0.5em;
+}
+
+.btn--accent,
+.btn--check {
+  border-radius: 15px;
+  box-shadow: var(--box-shadow);
+  font-size: 0.8rem;
+  letter-spacing: 2.5px;
+  padding: 0.8em 1.5em;
+  margin: 1.5em 0 0.2em 0;
+  font-weight: 500;
+}
+
+.btn--accent {
+  background-color: var(--clr-accent);
+  color: var(--clr-neutral-100);
+}
+
+.btn--check {
+  background-color: rgb(27, 206, 27);
+  color: var(--clr-neutral-100);
+}
+
+.btn__icon {
+  margin-right: 0.5em;
+  transform: translateY(1px);
+}
+
+.btn--accent:hover {
+  opacity: 0.9;
+}
+
+@media (min-width: 50em) {
+  html {
+    font-size: 17px;
+  }
+}
+
+/*form*/
+
+form {
+  text-align: center;
+  height: 100%;
+  margin-block: 1em;
+  border-radius: 0.8rem;
+}
+
+textarea {
+  resize: none;
+  font-family: "Open Sans", sans-serif;
+  vertical-align: top;
+}
+
+
+.form__input {
+  border: 1px solid var(--clr-neutral-700);
+  border-radius: 0.2rem;
+  color: var(--clr-neutral-700);
+  display: block;
+  font-size: 1rem;
+  margin: 0 auto;
+  padding: 0.5em 1em;
+  margin-block: 1em;
+}
+
+.form__group {
+  margin-bottom: 1em;
+}
+
+.form__group>.form__input {
+  margin-block: 0;
+}
+
+.form__group>select {
+  display: inline;
+}
+
+.form__input--labled {
+  display: inline-block;
+  width: 200px;
+}
+
+.label {
+  width: 75px;
+  text-align: start;
+  margin-left: 0.4em;
+}
+
+.form__input:focus,
+textarea:focus {
+  outline: 1px solid var(--clr-neutral-900);
+}
+
+form a:hover {
+  opacity: 0.8;
+}
+
+@media (min-width: 58em) {
+  .form__btn {
+    transition: transform 0.3s ease 0s;
+  }
+
+  .form__btn:hover {
+    transform: translateY(-4px);
+  }
+
+  .form__input--labled {
+    width: 250px;
+  }
+}
+
+.err {
+  color: red;
+  font-weight: bold;
+}
+
+/*tables*/
+.activities-icons {
+  transform: translateY(5px);
+  width: 1.5em;
+}
+
+.vx-image {
+  width: 1.6em;
+  transform: translateY(6px);
+}
+
+.copyrights {
+  position: absolute;
+  font-size: 0.8rem;
+  background-color: #e4fffa;
+  width: 100%;
+  margin: 15px auto 0 auto;
+  border-radius: 0px;
+  padding: 5px 15px 5px 15px;
+  text-align: center;
+  bottom: 0;
+}
+
+.activities-icons {
+  width: 30px;
+}
+
+.exportBtn {
+  display: flex;
+  justify-content: center;
+}

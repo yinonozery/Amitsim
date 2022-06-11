@@ -1,0 +1,45 @@
+.register__description {
+  color: var(--clr-neutral-700);
+  margin-block: 1em;
+}
+
+.register__title {
+  margin-bottom: 1em;
+}
+
+.category {
+  border: 2px solid var(--clr-neutral-500);
+  border-radius: 20px;
+  padding: 5px;
+  margin: 1em auto;
+  max-width: 300px;
+  text-align: center;
+  box-shadow: var(--box-shadow);
+}
+
+.category h3 {
+  background-color: #3cbcc335;
+  margin: 5px;
+  border-radius: 20px;
+  padding: 5px;
+  color: rgb(33, 33, 33);
+}
+
+.role {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2em;
+  margin-block: 0.5em;
+}
+
+@media (min-width: 47em) {
+  #rolesList {
+    display: flex;
+    gap: 1em;
+  }
+
+  .category {
+    flex: 1;
+  }
+}

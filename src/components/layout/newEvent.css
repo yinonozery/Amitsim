@@ -1,0 +1,60 @@
+.event-details__form-title {
+  margin-bottom: 1em;
+  font-size: 1.7rem;
+}
+
+.event-details__roles__list {
+  padding: 0 1em;
+  margin: 0;
+  list-style: none;
+}
+
+.event-details__roles__list>li {
+  margin-bottom: 0.3em;
+}
+
+@media (min-width: 45em) {
+  .row {
+    display: flex;
+    gap: 1.5em;
+    align-items: flex-start;
+  }
+
+  .event-details {
+    width: 75%;
+  }
+
+  .event-details__roles {
+    width: 35%;
+  }
+
+  .event-description {
+    width: 15rem;
+  }
+}
+
+#titleCat {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  padding: 1px 20px 20px 20px;
+}
+
+#titleCat h3 {
+  background-color: #3cbcc335;
+  border-radius: 20px;
+  padding: 5px;
+  color: rgb(33, 33, 33);
+}
+
+ol {
+  line-height: 2;
+}
+
+ol li {
+  list-style-type: decimal;
+  counter-increment: item;
+}
+
+ol li::marker {
+  color: #7eb4e2;
+  font-weight: bold;
+}

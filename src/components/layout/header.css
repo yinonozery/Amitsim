@@ -1,0 +1,268 @@
+/*for every page that has the design with the navbar (after logging in)*/
+
+header {
+  background-color: var(--clr-neutral-100);
+  box-shadow: var(--box-shadow);
+  border-radius: 0 0 10px 10px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header__logo {
+  display: none;
+}
+
+header .container {
+  width: 90%;
+}
+
+.nav {
+  display: none;
+}
+
+.nav img {
+  margin-left: 30px;
+}
+
+/*----------------Shows the "menu" icon-----------------*/
+.nav-toggle {
+  cursor: pointer;
+  border: 0;
+  width: 3em;
+  height: 3em;
+  background: transparent;
+  color: var(--clr-title);
+  transition: opacity 250ms ease;
+  transform: translateY(0.8em);
+}
+
+.nav-toggle:hover {
+  opacity: 0.75;
+}
+
+.hamburger {
+  width: 60%;
+  position: relative;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  display: block;
+  margin: 0 auto;
+  height: 3px;
+  background: var(--clr-title);
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  width: 100%;
+}
+
+.hamburger::before {
+  transform: translateY(-7px);
+}
+
+.hamburger::after {
+  transform: translateY(3.5px);
+}
+
+.hamburger--close::after {
+  display: inline-block;
+  content: "\00d7";
+  /* This will render the 'X' */
+  font-size: 3rem;
+  transform: translateY(-6px);
+}
+
+/*----------------------------------------*/
+
+.nav__list {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+  margin-top: 2em;
+}
+
+.nav__list--secondary {
+  margin-top: 2.5em;
+}
+
+.nav__title {
+  display: none;
+}
+
+.nav__item {
+  padding-block: 1em;
+  position: relative;
+  border-bottom: 2px solid var(--clr-neutral-300);
+}
+
+.nav__link {
+  color: var(--clr-neutral-900);
+  cursor: pointer;
+}
+
+.nav__title {
+  margin-block: 1em;
+}
+
+.nav__link--active {
+  /* background-color: #e4fffa;
+  border-radius: 10px;
+  width: fit-content;
+  margin: 0 auto; */
+  font-weight: bold;
+  text-decoration: overline;
+}
+
+.nav__link:hover {
+  color: var(--clr-primary-bold);
+}
+
+.logout {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--clr-title);
+}
+
+.logout:hover {
+  color: var(--clr-neutral-900);
+  opacity: 0.7;
+}
+
+.nav--visible {
+  display: block;
+}
+
+.logout__icon {
+  transform: translateY(2px);
+}
+
+.dropdown-list {
+  list-style: none;
+  padding: 0;
+  animation: showDropdown 300ms;
+}
+
+@keyframes showDropdown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-list li {
+  margin-top: 1em;
+}
+
+.dropdown__link {
+  color: var(--clr-neutral-900);
+}
+
+.dropdown__link:hover {
+  opacity: 0.8;
+}
+
+/*navbar for larger screens*/
+@media (min-width: 58em) {
+  .nav-toggle {
+    display: none;
+  }
+
+  .header__logo {
+    display: block;
+  }
+
+  header>.container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    font-size: 18px;
+  }
+
+  .nav__list {
+    display: flex;
+    gap: 1em;
+    margin-block: 0;
+  }
+
+  .nav__list--secondary {
+    margin-right: auto;
+  }
+
+  .nav__item {
+    margin: 0;
+    border: 0;
+  }
+
+  .nav--btn .btn--accent {
+    transform: translateY(-6px);
+  }
+
+  .header__logo {
+    width: 97px;
+  }
+
+  .logout__icon {
+    transform: translateY(3px);
+  }
+
+  .dropdown-list {
+    background-color: var(--clr-neutral-100);
+    width: 180px;
+    position: absolute;
+    top: 2.5rem;
+    right: -18px;
+    box-shadow: var(--box-shadow-bold);
+    list-style: none;
+    text-align: start;
+    padding: 0;
+    animation: showDropdown 400ms;
+  }
+
+  @keyframes showDropdown {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .dropdown-list li {
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    margin: 0;
+  }
+
+  .dropdown-list li:hover {
+    background-color: var(--clr-neutral-300);
+  }
+}
+
+@media (min-width: 71em) {
+  .nav__title {
+    display: block;
+    font-weight: 500;
+    letter-spacing: 1.4px;
+  }
+}

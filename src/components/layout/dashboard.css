@@ -1,0 +1,42 @@
+.main__title {
+    margin-bottom: 0;
+}
+
+.statistics {
+    width: 100%;
+}
+
+section {
+    text-align: start;
+    margin-bottom: 1em;
+}
+
+.section__title {
+    margin-bottom: .8em;
+    text-align: center;
+}
+
+.section__row {
+    gap: 1em;
+}
+
+.seperator {
+    width: 100%;
+    border-top: 3px solid var(--clr-neutral-700);
+    border-bottom: 0;
+    border-inline: 0;
+    border-style: dashed;
+    margin: 1.5em auto;
+}
+
+@media (min-width: 45em) {
+    .row {
+        display: flex;
+        gap: 2em;
+    }
+
+    .statistic {
+        flex: 1;
+    }
+}
+
