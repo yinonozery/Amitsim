@@ -1,4 +1,4 @@
-<img src="https://static.wixstatic.com/media/231ad7_7b2caab76cf4460b81167f13d65a5302~mv2.jpg" width="250" height="250">
+<p align="center"><img src="https://static.wixstatic.com/media/231ad7_7b2caab76cf4460b81167f13d65a5302~mv2.jpg" width="250" height="250"></p>
 
 # About Amitsim
 Amitsim provides a space for young widows and widowers and their young children to give voice to their deepest pains and fears, to connect with others who experienced the same trauma, to receive psychological support, and to create a new, healthy normal for their family.
