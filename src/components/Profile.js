@@ -13,7 +13,7 @@ const Profile = () => {
     const [cats, setCats] = useState([]);
     const [catTitles, setCatTitles] = useState([]);
     const [myRoles, setMyRoles] = useState([]);
-
+    const [unsavedChanges, setUnsavedChanges] = useState(false);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const password = useRef('');
@@ -25,7 +25,6 @@ const Profile = () => {
     let failed = false;
     let refUser = '';
     let myroles = [];
-
 
     useEffect(() => {
         const getRoles = async () => {
@@ -52,6 +51,7 @@ const Profile = () => {
     }, [user]);
 
     const userRoles = (userRole) => {
+        setUnsavedChanges(true);
         if (!myRoles.includes(userRole))
             myRoles.push(userRole);
         else
@@ -196,7 +196,7 @@ const Profile = () => {
                                 <p className="property">סיסמה:</p>
                                 <input ref={password} type="password" className="property--value input" placeholder='הכנס סיסמה חדשה' />
                             </div>
-                            <p id="err"></p>
+                            <p id="err" className="err">{unsavedChanges ? "לחץ על כפתור השמירה לשמירת התפקידים" : ""}</p>
                             <button className="btn--accent">שמירה</button>
                         </form>
                     </div>
@@ -210,6 +210,7 @@ const Profile = () => {
                         <button className="btn--accent" type="submit" onClick={() => handlePopup()}>עריכה</button>
                     </div>
                 </div>
+                
             </div>
             <Popup
                 showPopup={showPopup}
