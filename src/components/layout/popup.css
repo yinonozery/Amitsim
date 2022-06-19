@@ -12,11 +12,7 @@
     z-index: 10;
 }
 
-<<<<<<< HEAD
 .popUp-content__title {
-=======
-.popUp-content__title{
->>>>>>> c94c293a64084a51e42f8cfb11aabefe72f28a92
     color: var(--clr-title);
 }
 
@@ -32,8 +28,4 @@
     width: 1.3rem;
     height: 1.3rem;
     color: var(--clr-neutral-600);
-<<<<<<< HEAD
-=======
-    
->>>>>>> c94c293a64084a51e42f8cfb11aabefe72f28a92
 }
