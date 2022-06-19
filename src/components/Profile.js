@@ -5,8 +5,15 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { db } from "./Firebase";
 import Header from './Header';
 import '../components/layout/profile.css';
+import Popup from './Popup';
 
 const Profile = () => {
+
+    const [showPopup, setShowPopup] = useState(false);
+    const [cats, setCats] = useState([]);
+    const [catTitles, setCatTitles] = useState([]);
+    const [myRoles, setMyRoles] = useState([]);
+
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const password = useRef('');
@@ -17,6 +24,21 @@ const Profile = () => {
     const user = getAuth();
     let failed = false;
     let refUser = '';
+    let myroles = [];
+
+
+    useEffect(() => {
+        const getRoles = async () => {
+            setCats([]);
+            const data = await getDocs(collection(db, 'roles'));
+            data.forEach((e) => {
+                const subarr = Object.values(e.data());
+                setCatTitles(catTitles => [...catTitles, e.id]);
+                setCats(cats => [...cats, subarr]);
+            });
+        }
+        getRoles();
+    }, []);
 
     useEffect(() => {
         onAuthStateChanged(user, () => {
@@ -28,6 +50,17 @@ const Profile = () => {
             }
         });
     }, [user]);
+
+    const userRoles = (userRole) => {
+        if (!myRoles.includes(userRole))
+            myRoles.push(userRole);
+        else
+            myRoles.splice(myRoles.indexOf(userRole), 1);
+    }
+
+    const handlePopup = () => {
+        setShowPopup(prevShowPopup => !prevShowPopup);
+    }
 
     const loginAndUpdate = async (event) => {
         event.preventDefault();
@@ -55,10 +88,9 @@ const Profile = () => {
                     data.forEach((doc) => {
                         if (doc.data().uid === uid) {
                             if (password !== '')
-                                updateDoc(doc.ref, { 'name': name, 'email': email, 'tel': phone, 'password': pass });
+                                updateDoc(doc.ref, { 'name': name, 'email': email, 'tel': phone, 'password': pass, 'roles': myRoles });
                             else
-                                updateDoc(doc.ref, { 'name': name, 'email': email, 'tel': phone });
-
+                                updateDoc(doc.ref, { 'name': name, 'email': email, 'tel': phone, 'roles': myRoles });
                         }
                     });
                 });
@@ -68,6 +100,41 @@ const Profile = () => {
             }
         }
     }
+
+    const showCats = (index) => {
+        const div1 = document.createElement('div');
+        div1.key = index;
+        div1.id = 'titleCat';
+
+        const h3 = document.createElement('h3');
+        h3.innerHTML = (catTitles[index]);
+        div1.appendChild(h3);
+        document.getElementById('showCats').replaceChildren(div1);
+
+        cats[index].forEach((role, indexRole) => {
+            const div = document.createElement('div', { key: indexRole });
+            const input = document.createElement('input');
+            input.setAttribute('type', 'checkbox');
+            input.setAttribute('id', (index + '-' + indexRole));
+            input.value = indexRole;
+            input.onchange = () => userRoles(`${index}-${indexRole}`);
+
+            const label = document.createElement('label');
+            label.setAttribute('for', index + '-' + indexRole);
+            label.textContent = role;
+            div.appendChild(input);
+            div.appendChild(label);
+
+            document.getElementById('titleCat').appendChild(div);
+        });
+
+        myRoles.forEach((role) => {
+            const nums = role.split('-');
+            if (document.getElementById(nums[0] + '-' + nums[1]))
+                document.getElementById(nums[0] + '-' + nums[1]).checked = true;
+        });
+    }
+
 
     const getRoles = async () => {
         let categories = [];
@@ -79,14 +146,15 @@ const Profile = () => {
 
         const doc = await getDoc(refUser);
 
-        const myroles = doc.data().roles;
+        myroles = (doc.data().roles);
         setPhone(doc.data().tel);
         setCity(doc.data().city)
         setSSN(doc.data().ssn);
 
-        for (let i = 0; i < myroles.length; i++)
+        for (let i = 0; i < myroles.length; i++) {
             setRoles((roles) => roles + "<li>" + categories[parseInt(myroles[i][0])][parseInt(myroles[i][2])] + "</li>");
-
+            setMyRoles(myRoles => [...myRoles, myroles[i][0] + '-' + myroles[i][2]]);
+        }
         window.onload = await function () {
             document.getElementById('myroles').innerHTML = roles;
         }
@@ -139,10 +207,32 @@ const Profile = () => {
                         <ol className="user-details__roles__list" id="myroles">
                             <div dangerouslySetInnerHTML={{ __html: roles }} />
                         </ol>
-                        <button className="btn--accent" type="submit">עריכה</button>
+                        <button className="btn--accent" type="submit" onClick={() => handlePopup()}>עריכה</button>
                     </div>
                 </div>
             </div>
+            <Popup
+                showPopup={showPopup}
+                handlePopup={handlePopup}
+                title='בחר תפקידים'
+                noButton={true}
+                buttonText='שמירה'
+                html={<div>
+                    <select id="showCat" className="form__input"
+                        onChange={(e) => showCats(e.target.value)}
+                    >
+                        <option defaultValue hidden>בחר קטגוריה</option>
+                        {catTitles.map((title, index) => {
+                            return (
+                                <option value={index} key={index}>{title}</option>
+                            )
+                        })}
+                    </select>
+                    <p id="showCats"></p>
+                    <button className='btn--accent' onClick={handlePopup}>שמירה</button>
+                </div>
+                }
+            />
         </div>
     )
 }
