@@ -51,3 +51,8 @@
   cursor: pointer;
 }
 
+.msg-by {
+  color: rgb(95, 95, 95);
+  padding: 3px;
+  font-size: 0.65rem;
+}
