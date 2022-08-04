@@ -2,7 +2,6 @@ import React from "react";
 import { createTheme, ThemeProvider } from "@material-ui/core";
 import { heIL } from "@material-ui/core/locale";
 import TableCostumized from "./TableCostumized";
-import { Link } from "react-router-dom";
 import yes from "../assets/yes.png";
 import no from "../assets/no.png";
 import { useState, useEffect } from "react";
@@ -163,7 +162,8 @@ const UsersTable = (props) => {
     const activities = (
       <div>
         <button
-          className="form__btn btn--accent"
+          className={user.isActive ? "form__btn btn--accent" : "form__btn btn--check"}
+          id="activate-btn"
           onClick={() => deActive(user.uid)}
         >
           {toggle}
