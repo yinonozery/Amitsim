@@ -6,11 +6,11 @@ import Header from './Header';
 import AdminPer from './AdminPer';
 import { FaUserPlus } from 'react-icons/fa';
 import './layout/roles.css';
-import { IoMdNotificationsOutline } from 'react-icons/io';
 
 const Register = () => {
     const email = useRef('');
-    const fullName = useRef('');
+    const firstName = useRef('');
+    const lastName = useRef('');
     const gender = useRef('');
     const tel = useRef('');
     const city = useRef('');
@@ -106,7 +106,8 @@ const Register = () => {
 
         try {
             registerWithEmailAndPassword(
-                fullName.current.value,
+                firstName.current.value,
+                lastName.current.value,
                 ssn.current.value,
                 email.current.value,
                 password,
@@ -123,7 +124,11 @@ const Register = () => {
         } finally {
             if (!errOccured) {
                 err.style.color = 'green';
-                err.innerText = fullName.current.value + ' נרשם בהצלחה ✓';
+                err.innerText =
+                    firstName.current.value +
+                    ' ' +
+                    lastName.current.value +
+                    'נרשם בהצלחה ✓';
                 setTimeout(() => navigate('/'), 1000);
             }
         }
@@ -143,10 +148,17 @@ const Register = () => {
             <div className='box container'>
                 <form className='login__form' onSubmit={register}>
                     <input
-                        ref={fullName}
+                        ref={firstName}
                         className='form__input'
                         type='text'
-                        placeholder='שם מלא'
+                        placeholder='שם פרטי'
+                        required
+                    />
+                    <input
+                        ref={lastName}
+                        className='form__input'
+                        type='text'
+                        placeholder='שם משפחה'
                         required
                     />
                     <input
