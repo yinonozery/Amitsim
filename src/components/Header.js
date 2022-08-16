@@ -57,7 +57,7 @@ const Header = (props) => {
                     <ClickAwayListener onClickAway={closeDropdowns}>
                         {isUserAdmin ?
                             <ul className="nav__list nav__list--primary">
-                                <li> <p className="nav__title">ברוך הבא, {username} |</p> </li>
+                                <li> <p className="nav__title">אהבלה, {username} |</p> </li>
                                 <li className="nav__item">
                                     <div className={`nav__link ${props.currPage === 'home' && 'nav__link--active'}`}>
                                         <Link className="nav__link" to="/dashboard">ראשי</Link>
@@ -117,7 +117,7 @@ const Header = (props) => {
                             </ul>
                             : // Else user isn't admin
                             <ul className="nav__list nav__list--primary">
-                                <li> <p className="nav__title">ברוך הבא, {username} |</p> </li>
+                                <li> <p className="nav__title">ברוך הבא, {username} הסתומה|</p> </li>
                                 <li className="nav__item">
                                     <div className={`nav__link ${props.currPage === 'home' && 'nav__link--active'}`}>
                                         <Link className="nav__link" to="/dashboard">ראשי</Link>
