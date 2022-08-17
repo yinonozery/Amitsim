@@ -11,9 +11,9 @@ import { collection, getDocs, updateDoc } from 'firebase/firestore';
 const UsersTable = (props) => {
     const [users, setUsers] = useState([]);
 
-    const editUser = (uid) => {
-        console.log(uid);
-    };
+    // const editUser = (uid) => {
+    //     console.log(uid);
+    // };
 
     const deActive = (uid) => {
         // Update also in users collection
@@ -87,12 +87,6 @@ const UsersTable = (props) => {
             align: 'center',
         },
         {
-            id: 'ssn',
-            label: 'ת"ז',
-            minWidth: 120,
-            align: 'center',
-        },
-        {
             id: 'status',
             label: 'מצב',
             minWidth: 120,
@@ -145,8 +139,7 @@ const UsersTable = (props) => {
             user.city.includes(searchWord) ||
             (user.firstName + ' ' + user.lastName).includes(searchWord) ||
             user.email.includes(searchWord) ||
-            user.tel.includes(searchWord) ||
-            user.ssn.includes(searchWord)
+            user.tel.includes(searchWord) 
         );
     });
 
