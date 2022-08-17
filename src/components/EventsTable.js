@@ -59,6 +59,12 @@ const EventsTable = (props) => {
       align: "center",
     },
     {
+      id: "hours",
+      label: "שעות",
+      minWidth: 120,
+      align: "center",
+    },
+    {
       id: "type",
       label: "סוג",
       minWidth: 120,
@@ -86,8 +92,8 @@ const EventsTable = (props) => {
     }
   ];
 
-  function createData(name, date, type, creator, isActive, activities) {
-    return { name, date, type, creator, isActive, activities };
+  function createData(name, date, hours, type, creator, isActive, activities) {
+    return { name, date, hours, type, creator, isActive, activities };
   }
 
   const searchRes = events.filter((event) => {
@@ -100,28 +106,29 @@ const EventsTable = (props) => {
     );
   });
 
-//   const [showPopup, setShowPopup] = useState(false);
-//   const handlePopup = () => {
-//     setShowPopup((prevShowPopup) => !prevShowPopup);
-//   };
+  //   const [showPopup, setShowPopup] = useState(false);
+  //   const handlePopup = () => {
+  //     setShowPopup((prevShowPopup) => !prevShowPopup);
+  //   };
 
-//   const openPopUp = () => {
-//     handlePopup();
-//     console.log("asdas");
-//     return (
-//       <Popup
-//         showPopup={showPopup}
-//         handlePopup={handlePopup}
-//         title="בחר תפקידים"
-//         noButton={true}
-//         buttonText="שמירה"
-//         html={<div></div>}
-//       />
-//     );
-//   };
+  //   const openPopUp = () => {
+  //     handlePopup();
+  //     console.log("asdas");
+  //     return (
+  //       <Popup
+  //         showPopup={showPopup}
+  //         handlePopup={handlePopup}
+  //         title="בחר תפקידים"
+  //         noButton={true}
+  //         buttonText="שמירה"
+  //         html={<div></div>}
+  //       />
+  //     );
+  //   };
 
   const rows = searchRes.map((event) => {
-    let active;
+    let active, hours;
+    event.event_start && event.event_end &&(hours = `${event.event_start}-${event.event_end}`)
     event.is_active ? (active = yes) : (active = no);
     event.is_active ? (active = yes) : (active = no);
     const activeImage = <img className="vx-image" src={active} alt="פעיל" />;
@@ -145,6 +152,7 @@ const EventsTable = (props) => {
     return createData(
       event.event_name,
       new Date(event.event_date.seconds * 1000).toLocaleDateString(),
+      hours,
       event.type,
       event.name,
       activeImage,

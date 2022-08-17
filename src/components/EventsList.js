@@ -44,6 +44,9 @@ const EventsList = (props) => {
     });
 
     const eventsUI = searchRes.map((event) => {
+
+        const eventDescription = <div><p><b>שעות:</b> {event.event_start}-{event.event_end}</p> <br /> <p><b>תיאור: </b>{event.description}</p></div>
+
         return (
             <div key={event.uid}>
                 <Event
@@ -51,7 +54,7 @@ const EventsList = (props) => {
                     type={event.type}
                     date={event.event_date.toDate().toLocaleDateString('he-IL')}
                     address={event.location}
-                    description={event.description}
+                    description={eventDescription}
                     handlePopup={handlePopup}
                 />
             </div>
@@ -67,6 +70,7 @@ const EventsList = (props) => {
                 title={popUpContent.title}
                 type={popUpContent.type}
                 description={popUpContent.description}
+                buttonText="אישור"
             />
             <ul className="events-menu">
                 {eventsUI}

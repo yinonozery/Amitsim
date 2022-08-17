@@ -28,6 +28,12 @@ const FamiliesTable = (props) => {
             format: (value) => value.toLocaleString('en-IL'),
         },
         {
+            id: 'birth',
+            label: 'תאריך לידה',
+            minWidth: 120,
+            align: 'center',
+        },
+        {
             id: 'mail',
             label: 'מייל',
             minWidth: 120,
@@ -47,6 +53,13 @@ const FamiliesTable = (props) => {
             format: (value) => value.toLocaleString('en-IL'),
         },
         {
+            id: 'notes',
+            label: 'הערות',
+            minWidth: 120,
+            align: 'center',
+            format: (value) => value.toLocaleString('en-IL'),
+        },
+        {
             id: 'city',
             label: 'עיר',
             minWidth: 120,
@@ -61,8 +74,8 @@ const FamiliesTable = (props) => {
         }
     ];
 
-    function createData(name, mail, phone, address, city, minors) {
-        return { name, mail, phone, address, city, minors };
+    function createData(name, birth ,mail, phone, address, notes ,city, minors) {
+        return { name, birth ,mail, phone, address, notes ,city, minors };
     }
 
     const searchRes = families.filter((fam) => {
@@ -79,7 +92,7 @@ const FamiliesTable = (props) => {
 
     const rows = searchRes.map((family) => {
         const fullName = `${family.fname} ${family.lname}`
-        return createData(fullName, family.email, family.phone, family.address, family.city, family.minors);
+        return createData(fullName, family.birth ,family.email, family.phone, family.address, family.notes ,family.city, family.minors);
     })
 
     return (
