@@ -12,6 +12,9 @@ const NewEvent = () => {
   const description = useRef("");
   const date = useRef("");
   const location = useRef("");
+  const start = useRef("");
+  const end = useRef("");
+
   const [cats, setCats] = useState([]);
   const [type, setType] = useState("");
   const [user] = useAuthState(auth);
@@ -110,6 +113,8 @@ const NewEvent = () => {
         name: user.displayName,
         event_name: title.current.value,
         event_date: Timestamp.fromDate(new Date(date.current.value)),
+        event_start: start.current.value,
+        event_end: end.current.value,
         location: location.current.value,
         type: type,
         description: description.current.value,
@@ -168,6 +173,28 @@ const NewEvent = () => {
                   ref={date}
                   type="date"
                   name="date"
+                  required
+                />
+              </div>
+
+              <div className="form__group">
+                <span className="label">שעת התחלה: </span>
+                <input
+                  className="form__input form__input--labled"
+                  ref={start}
+                  type="time"
+                  name="start"
+                  required
+                />
+              </div>
+
+              <div className="form__group">
+                <span className="label">שעת סיום: </span>
+                <input
+                  className="form__input form__input--labled"
+                  ref={end}
+                  type="time"
+                  name="end"
                   required
                 />
               </div>
