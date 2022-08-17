@@ -179,11 +179,15 @@ const UsersTable = (props) => {
                 </button>
             </div>
         );
+
+        const emailLink = (
+            <a href={`mailto:${user.email}`}>{user.email}</a>
+        )
         return createData(
             user.firstName,
             user.lastName,
             user.city,
-            user.email,
+            emailLink,
             user.gender,
             user.tel,
             user.ssn,
