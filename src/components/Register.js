@@ -18,7 +18,7 @@ const Register = () => {
     const [cats, setCats] = useState([]);
     const [catTitles, setCatTitles] = useState([]);
 
-    let userStringsRoles = [];
+    let userStringsRoles = ['0-10'];
     const navigate = useNavigate();
 
     const userRoles = (userRole) => {
@@ -32,6 +32,22 @@ const Register = () => {
             <div className='category' key={indexCat}>
                 <h3 className='register__title'>{catTitles[indexCat]}</h3>
                 {subcat.map((role, indexRole) => {
+                    if (role === 'תפקיד כללי') {
+                        return (
+                            <div className='role' key={indexRole}>
+                                <input
+                                    type='checkbox'
+                                    value={indexRole}
+                                    disabled
+                                    checked
+                                    id={`${indexCat}-${indexRole}`}
+                                />
+                                <label htmlFor={`${indexCat}-${indexRole}`}>
+                                    {role}
+                                </label>
+                            </div>
+                        )
+                    }
                     return (
                         <div className='role' key={indexRole}>
                             <input
@@ -83,7 +99,7 @@ const Register = () => {
                 const step = digit * ((i % 2) + 1);
                 return counter + (step > 9 ? step - 9 : step);
             }) %
-                10 ===
+            10 ===
             0
         );
     }
