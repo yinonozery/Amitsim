@@ -13,7 +13,7 @@ function UserUpdatesList() {
     
     useEffect(() => {
         const getUpdates = async () => {
-            const data = await getDocs(query(collection(db, "updates"), orderBy('created')));
+            const data = await getDocs(query(collection(db, "updates"), orderBy('created', 'desc')));
             setUpdates(data.docs.map((doc) => ({ ...doc.data(), uid: doc.id })));
         }
         getUpdates();
