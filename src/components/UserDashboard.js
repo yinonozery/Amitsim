@@ -28,7 +28,7 @@ const UserDashboard = () => {
                     <div className="status-tables--group status-table__notifications">
                         <GrAnnounce size="20" />
                         <h3 className="container">עדכונים </h3>
-                        <UserUpdatesList />
+                        <UserUpdatesList quantity={4}/>
                         <div className="status-tables__linker">
                             <a href="/updates"><small>הראה הכל</small></a>
                         </div>

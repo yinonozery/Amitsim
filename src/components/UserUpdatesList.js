@@ -5,12 +5,12 @@ import { collection, query, getDocs, orderBy, doc, getDoc } from "firebase/fires
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 
-function UserUpdatesList() {
+function UserUpdatesList(props) {
 
     const [updates, setUpdates] = useState([]);
     const [isUserAdmin, setIsUserAdmin] = useState(false);
     const user = getAuth();
-    
+
     useEffect(() => {
         const getUpdates = async () => {
             const data = await getDocs(query(collection(db, "updates"), orderBy('created', 'desc')));
@@ -30,9 +30,13 @@ function UserUpdatesList() {
         })
     }, [user]);
 
+    const quant = props.quantity === -1 ? updates.length : props.quantity
+
     return (
         <div>
-            {updates.map((updates, index) => {
+
+
+            {updates.slice(0,quant).map((updates, index) => {
                 return (
                     <UserUpdate
                         key={index}
