@@ -32,15 +32,30 @@
   margin-bottom: 0.4em;
 }
 
-.update__date {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--clr-neutral-700);
-}
-
 .update__details__msg {
   font-size: 0.7rem;
   overflow: hidden;
+}
+
+
+.update__left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 50px;
+}
+
+.update__delete-btn {
+  color: var(--clr-neutral-700);
+  cursor: pointer;
+  display: block;
+}
+
+.update__date {
+  font-size: .75rem;
+  font-weight: 700;
+  color: var(--clr-neutral-700);
 }
 
 .read-more-btn {
