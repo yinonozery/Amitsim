@@ -4,6 +4,7 @@ import CircularProgressWithLabel from "./CircularProgressWithLabel";
 import CallsList from "./CallsList";
 import UserUpdatesList from "./UserUpdatesList";
 import "./layout/dashboard.css";
+import "./layout/notifications.css"
 
 const AdminDashboard = () => {
     return (
@@ -40,12 +41,14 @@ const AdminDashboard = () => {
                     </section>
                 </div>
             </div>
-
-            <div className="box container">
-                <section className="user-updates container">
-                    <h2 className="section__title">עדכונים </h2>
-                    <UserUpdatesList />
-                </section>
+            <div className="container box box--sub">
+                <div className="status-tables--group status-table__notifications">
+                    <h3 className="container">עדכונים </h3>
+                    <UserUpdatesList quantity={4}/>
+                    <div className="status-tables__linker">
+                        <a href="/updates"><small>הראה הכל</small></a>
+                    </div>
+                </div>
             </div>
         </div>
     )

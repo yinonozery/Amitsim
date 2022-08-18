@@ -9,7 +9,7 @@ const UsersUpdates = () => {
             <div className="box box--sub container">
                 <div className="container">
                     <div className="updates__title title">עדכונים</div>
-                    <UserUpdatesList />
+                    <UserUpdatesList quantity={-1}/>
                 </div>
             </div>
         </div>
