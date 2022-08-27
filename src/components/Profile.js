@@ -182,13 +182,13 @@ const Profile = () => {
                     roles +
                     '<li>' +
                     categories[parseInt(myroles[i][0])][
-                        parseInt(myroles[i][2])
+                        parseInt(myroles[i].split("-")[1])
                     ] +
                     '</li>'
             );
             setMyRoles((myRoles) => [
                 ...myRoles,
-                myroles[i][0] + '-' + myroles[i][2],
+                myroles[i],
             ]);
         }
         window.onload = await function () {
