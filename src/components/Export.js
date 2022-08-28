@@ -111,7 +111,7 @@ const exportCalls = () => {
         //provide the name for the CSV file to be downloaded  
         hiddenElement.download = `Amitsim--${new Date().toISOString()}.csv`;
         hiddenElement.click();
-        window.location.href = "/events";
+        window.location.href = "/mngcalls";
     }
 
     return (
