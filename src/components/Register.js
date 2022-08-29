@@ -104,7 +104,7 @@ const Register = () => {
         );
     }
 
-    const register = (event) => {
+    const register = async (event) => {
         event.preventDefault();
         const err = document.getElementById('err');
         if (is_israeli_id_number(ssn.current.value) === false) {
@@ -112,16 +112,19 @@ const Register = () => {
             err.innerText = 'מספר תעודת הזהות אינו תקין, נסה/י שנית';
             return;
         }
-        if (checkIdExists(ssn.current.value)) {
+
+        const isIdExist = await checkIdExists(ssn.current.value);
+        if (isIdExist) {
             err.style.color = 'red';
             err.innerText = 'מספר תעודת הזהות כבר בשימוש במערכת, נסה/י שנית';
             return;
         }
+
         const password = Math.random().toString(15).substring(2, 20);
         let errOccured = false;
 
         try {
-            registerWithEmailAndPassword(
+            await registerWithEmailAndPassword(
                 firstName.current.value,
                 lastName.current.value,
                 ssn.current.value,
