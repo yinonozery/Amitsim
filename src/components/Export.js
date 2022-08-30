@@ -11,12 +11,12 @@ const exportUsers = () => {
     const createFile = async () => {
         const arr = await getUsers();
         //define the heading for each row of the data  
-        var csv = 'שם מלא, תעודת זהות, אימייל, פלאפון, מגדר, פעיל, מנהל,מזהה משתמש\n';
+        var csv = 'שם פרטי, שם משפחה, תעודת זהות, אימייל, פלאפון, מגדר, פעיל, מנהל,מזהה משתמש\n';
         //merge the data with CSV  
 
         Object.entries(arr).forEach((row) => {
             const user = row[1];
-            csv += user.name + ',' + user.ssn + ',' + user.email + ',' + user.tel + ','
+            csv += user.firstName + ',' + user.lastName + ',' + user.ssn + ',' + user.email + ',' + user.tel + ','
                 + user.gender + ',' + user.isActive + ',' + user.isAdmin + ',' + user.uid;
             csv += "\n";
         });
@@ -111,7 +111,7 @@ const exportCalls = () => {
         //provide the name for the CSV file to be downloaded  
         hiddenElement.download = `Amitsim--${new Date().toISOString()}.csv`;
         hiddenElement.click();
-        window.location.href = "/events";
+        window.location.href = "/mngcalls";
     }
 
     return (

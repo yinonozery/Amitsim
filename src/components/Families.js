@@ -12,11 +12,9 @@ const Families = () => {
             <Header currPage="users" />
             <AdminPer url="/families" />
             <br />
-            <div className="box container">
+            <div className="box container--big">
                 <h1 className="delivery-list__title title container">רשימת מוטבים</h1>
-            </div>
-            <br />
-            <div className="box container">
+                <br />
                 <div className="calls-menu__search container">
                     <input type="text" className="calls-menu__search__input" placeholder="חפש מוטב" onChange={(e) => setSearch(e.target.value)} />
                     <FaSearch />

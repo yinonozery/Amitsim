@@ -74,6 +74,11 @@ button {
   width: min(70%, 30rem);
 }
 
+.container--big {
+  width: min(90%, 63rem);
+  margin-inline: auto;
+}
+
 .small {
   color: var(--clr-neutral-700);
 }
@@ -160,6 +165,11 @@ button {
 
 .btn--accent:hover {
   opacity: 0.9;
+}
+
+#activate-btn {
+  font-size: 0.7rem;
+  transform: translateY(-0.5rem);
 }
 
 @media (min-width: 50em) {

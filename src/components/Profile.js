@@ -159,6 +159,11 @@ const Profile = () => {
             if (document.getElementById(nums[0] + '-' + nums[1]))
                 document.getElementById(nums[0] + '-' + nums[1]).checked = true;
         });
+
+        const generalRoleCheckbox = document.getElementById('0-10');
+        if (generalRoleCheckbox) {
+            generalRoleCheckbox.setAttribute('disabled', true)
+        }
     };
 
     const getRoles = async () => {
@@ -182,7 +187,7 @@ const Profile = () => {
                     roles +
                     '<li>' +
                     categories[parseInt(myroles[i][0])][
-                        parseInt(myroles[i].split("-")[1])
+                    parseInt(myroles[i].split("-")[1])
                     ] +
                     '</li>'
             );
