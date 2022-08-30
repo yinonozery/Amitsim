@@ -138,12 +138,14 @@ const EventsTable = (props) => {
           className="activities-icons"
           src="../images/edit.png"
           alt="עריכה"
+          style={{width: 25, marginLeft: 6}}
         />
         <Link onClick={() => delEvent(event.uid)} to="/mngevents">
           <img
             className="activities-icons"
             src="../images/delete.png"
             alt="מחיקה"
+            style={{width: 25}}
           />
         </Link>
       </div>

@@ -14,7 +14,7 @@ const AdminCalls = () => {
             <br />
             <div className="box container">
                 <h1 className="delivery-list__title title container">קריאות</h1>
-            </div><br /><div className="box container">
+                <br />
                 <div className="calls-menu__search container">
                     <input type="text" className="calls-menu__search__input" placeholder="חפש קריאה" onChange={(e) => setSearch(e.target.value)} />
                     <FaSearch />

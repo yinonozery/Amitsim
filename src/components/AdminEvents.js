@@ -13,7 +13,7 @@ const AdminEvents = () => {
             <br />
             <div className="box container">
                 <h1 className="event-list__title title container">אירועים</h1>
-            </div><br /><div className="box container">
+                <br />
                 <div className="calls-menu__search container">
                     <input type="text" className="calls-menu__search__input" placeholder="חפש אירוע" onChange={(e) => setSearch(e.target.value)} />
                     <FaSearch />
