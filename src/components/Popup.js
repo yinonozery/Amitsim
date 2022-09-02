@@ -42,7 +42,7 @@ const Popup = (props) => {
                                         {props.html}
 
                                         {!props.noButton ? (
-                                            <button className='btn--accent'>
+                                            <button className='btn--accent' name='popupButton'>
                                                 <div className='spaced'>
                                                     <p>{props.buttonText}</p>
                                                     <div className='btn__icon btn__icon--edit'>
