@@ -92,12 +92,14 @@ const FamiliesTable = (props) => {
 
     const rows = searchRes.map((family) => {
         const fullName = `${family.fname} ${family.lname}`
-        return createData(fullName, family.birth ,family.email, family.phone, family.address, family.notes ,family.city, family.minors);
+        const minors = family.minors > 0 ? family.minors : "אין" 
+        const notes = family.notes && /[\u0590-\u05FF]/.test(family.notes) ? family.notes : "אין" 
+        return createData(fullName, family.birth ,family.email, family.phone, family.address, notes ,family.city, minors);
     })
 
     return (
         <ThemeProvider theme={theme}>
-            <div className="box--sub container">
+            <div className="box--sub container--big">
                 <TableCostumized
                     rows={rows}
                     columns={columns}

@@ -6,6 +6,7 @@ import no from '../assets/no.png';
 import { useState, useEffect } from "react";
 import { db } from "./Firebase";
 import { collection, getDocs, orderBy, query, deleteDoc, doc } from "firebase/firestore";
+import { Link } from "react-router-dom";
 
 const CallsTable = (props) => {
 
@@ -80,7 +81,7 @@ const CallsTable = (props) => {
         return { name, date, type, address, isActive, activities };
     }
 
-    
+
     const searchRes = calls.filter((call) => {
         const searchWord = props.search;
         if (searchWord.length < 2)
@@ -98,8 +99,8 @@ const CallsTable = (props) => {
         call.is_active ? active = yes : active = no;
         const activeImage = <img className="vx-image" src={active} alt='פעיל' />;
         const activities = <div>
-            <img className="activities-icons" src="../images/edit.png" alt="עריכה" />
-            <a href="/mngcalls" onClick={() => delCall(call.uid)}><img className="activities-icons" src="../images/delete.png" alt="מחיקה" /></a>
+            <img className="activities-icons" src="../images/edit.png" alt="עריכה" style={{ width: 25, marginLeft: 6 }} />
+            <Link to="/mngcalls" onClick={() => delCall(call.uid)}><img className="activities-icons" src="../images/delete.png" alt="מחיקה" style={{ width: 25 }} /></Link>
         </div>
         return createData(call.call_name, new Date(call.call_date.seconds * 1000).toLocaleDateString(), call.call_type, call.call_address, activeImage, activities);
     })

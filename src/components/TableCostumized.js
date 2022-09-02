@@ -28,7 +28,7 @@ const TableCostumized = (props) => {
       key={column.id}
       align={column.align}
       style={{
-        minWidth: column.minWidth,
+        maxWidth: 'max-content',
         backgroundColor: props.color,
         fontSize: ".8rem",
         fontFamily: "Open Sans, sans-serif",
@@ -50,13 +50,16 @@ const TableCostumized = (props) => {
         >
           {props.columns.map((column) => {
             const value = row[column.id];
+
             return (
               <TableCell
                 key={column.id}
                 align={column.align}
                 style={{
+                  maxWidth: 'max-content',
                   fontSize: ".8rem",
                   fontFamily: "Open Sans, sans-serif",
+                  padding: '.6rem 1rem'
                 }}
               >
                 {value}
@@ -71,10 +74,10 @@ const TableCostumized = (props) => {
     <div>
       <Paper
         elevation={1}
-        sx={{ width: "100%", overflow: "hidden" }}
-        style={{ borderRadius: 10 }}
+        sx={{ overflow: "hidden" }}
+        style={{ width: '100%', borderRadius: 10 }}
       >
-        <TableContainer sx={{ maxHeight: 440 }} style={{ borderRadius: 10 }}>
+        <TableContainer style={{ borderRadius: 10, width: '100%' }}>
           <Table>
             <TableHead>
               <TableRow>{TableHeaders}</TableRow>

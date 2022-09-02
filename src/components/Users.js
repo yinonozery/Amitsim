@@ -21,9 +21,9 @@ const Users = () => {
     else if (!filterActive.current.checked && filterNonActive.current.checked)
       setFilter("nonactive");
     if (filterAdmins.current.checked) {
-        setFilter("admins");
-        filterActive.current.checked = false;
-        filterNonActive.current.checked = false;
+      setFilter("admins");
+      filterActive.current.checked = false;
+      filterNonActive.current.checked = false;
     }
   };
 
@@ -32,11 +32,9 @@ const Users = () => {
       <Header currPage="users" />
       <AdminPer url="/users" />
       <br />
-      <div className="box container">
-        <h1 className="delivery-list__title title container">רשימת מתנדבים</h1>
-      </div>
-      <br />
-      <div className="box container">
+      <div className="box container--big">
+        <h1 className="delivery-list__title title">רשימת מתנדבים</h1>
+        <br />
         <div className="calls-menu__search container">
           <input
             type="text"

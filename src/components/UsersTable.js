@@ -7,9 +7,12 @@ import no from '../assets/no.png';
 import { useState, useEffect } from 'react';
 import { db } from './Firebase';
 import { collection, getDocs, updateDoc } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
+
 
 const UsersTable = (props) => {
     const [users, setUsers] = useState([]);
+    const currUser = getAuth();
 
     // const editUser = (uid) => {
     //     console.log(uid);
@@ -49,53 +52,53 @@ const UsersTable = (props) => {
         {
             id: 'firstName',
             label: 'שם פרטי',
-            minWidth: 120,
+            minWidth: 50,
             align: 'center',
             format: (value) => value.toLocaleString('en-IL'),
         },
         {
             id: 'lastName',
             label: 'שם משפחה',
-            minWidth: 120,
+            minWidth: 50,
             align: 'center',
             format: (value) => value.toLocaleString('en-IL'),
         },
         {
             id: 'city',
             label: 'עיר',
-            minWidth: 120,
+            minWidth: 90,
             align: 'center',
             format: (value) => value.toLocaleString('en-IL'),
         },
         {
             id: 'mail',
             label: 'מייל',
-            minWidth: 120,
+            minWidth: 150,
             align: 'center',
         },
         {
             id: 'gender',
             label: 'מין',
-            minWidth: 120,
+            minWidth: 50,
             align: 'center',
             format: (value) => value.toLocaleString('he-IL'),
         },
         {
             id: 'phone',
             label: 'טלפון',
-            minWidth: 120,
+            minWidth: 100,
             align: 'center',
         },
         {
             id: 'status',
             label: 'מצב',
-            minWidth: 120,
+            minWidth: 10,
             align: 'center',
         },
         {
             id: 'isAdmin',
             label: 'הרשאות מנהל',
-            minWidth: 120,
+            minWidth: 10,
             align: 'center',
         },
         {
@@ -139,7 +142,7 @@ const UsersTable = (props) => {
             user.city.includes(searchWord) ||
             (user.firstName + ' ' + user.lastName).includes(searchWord) ||
             user.email.includes(searchWord) ||
-            user.tel.includes(searchWord) 
+            user.tel.includes(searchWord)
         );
     });
 
@@ -165,6 +168,9 @@ const UsersTable = (props) => {
         const isAdminImage = (
             <img className='vx-image' src={admin} alt='פעיל' />
         );
+
+        const isCurrentUser = currUser.currentUser.uid === user.uid
+
         const activities = (
             <div>
                 <button
@@ -174,7 +180,10 @@ const UsersTable = (props) => {
                             : 'form__btn btn--check'
                     }
                     id='activate-btn'
-                    onClick={() => deActive(user.uid)}>
+                    onClick={() => deActive(user.uid)}
+                    disabled={isCurrentUser ? true : false}
+                    style={isCurrentUser ? { opacity: 0.5, cursor: 'not-allowed' } : null}
+                >
                     {toggle}
                 </button>
             </div>
@@ -199,7 +208,7 @@ const UsersTable = (props) => {
 
     return (
         <ThemeProvider theme={theme}>
-            <div className='box--sub container'>
+            <div className='box--sub container--big'>
                 <TableCostumized
                     rows={rows}
                     columns={columns}

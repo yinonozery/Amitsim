@@ -233,11 +233,12 @@ const EventsTable = (props) => {
         const details = (
             <div>
                 <button
-                    className='btn'
+                    className='btn--check'
                     onClick={() => {
                         openDetails(event.uid);
                         handlePopup();
                     }}
+                    style={{width: 25, marginLeft: 6, marginTop: 0}}
                     >
                     פרטים
                 </button>
@@ -251,6 +252,7 @@ const EventsTable = (props) => {
                         className='activities-icons'
                         src='../images/delete.png'
                         alt='מחיקה'
+                        style={{width: 25}}
                         onClick={() => {
                             delEvent(event.uid);
                             handlePopup();
