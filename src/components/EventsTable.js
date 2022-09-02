@@ -238,7 +238,7 @@ const EventsTable = (props) => {
                         openDetails(event.uid);
                         handlePopup();
                     }}
-                    style={{width: 25, marginLeft: 6, marginTop: 0}}
+                    style={{marginLeft: 6, marginTop: 0}}
                     >
                     פרטים
                 </button>
